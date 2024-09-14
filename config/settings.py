@@ -13,11 +13,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 from environs import Env
 
-
 # for environments variables
 env = Env()
 env.read_env()
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import django.core.mail.backends.console
@@ -45,14 +43,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # local apps
+    'accounts.apps.AccountsConfig',
+    'pages.apps.PagesConfig',
+    'products.apps.ProductsConfig',
+
     # third party apps
     'crispy_forms',
     'allauth',
     'allauth.account',
-
-    # local apps
-    'accounts',
-    'pages',
 ]
 
 SITE_ID = 1
@@ -99,7 +98,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "hamidegh886@gmail.com"
 EMAIL_HOST_PASSWORD = "iess iwue dsci mjja"
-
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -155,7 +153,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 # accounts config
 AUTH_USER_MODEL = 'accounts.CustomUser'
